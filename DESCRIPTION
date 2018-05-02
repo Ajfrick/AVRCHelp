@@ -1,0 +1,21 @@
+Package: AVRCHelp
+Type: Package
+Title: Assistance for AVRC/PIRC Data
+Version: 0.1.0
+URL: https://github.com/Ajfrick/AVRCHelp
+Author@R: person("Andrew", "Frick", email = "ajfrick71@gmail.com",
+                  role = c("aut", "cre"))
+Description: Contains datasets generated at build time with necessary 
+    information to complete all PIRC analyses. Also several other functions for 
+    ease of access with brms 	package and date extraction
+License: GPL-2
+Encoding: UTF-8
+Imports: 
+    stringr (>= 1.2.0),
+    dplyr,
+    tidyr,
+    tibble,
+    magrittr,
+    MASS
+LazyData: true
+RoxygenNote: 6.0.1
