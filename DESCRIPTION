@@ -10,7 +10,7 @@ Description: Contains datasets generated at build time with necessary
     ease of access with brms 	package and date extraction
 License: GPL-2
 Encoding: UTF-8
-Imports: 
+Imports:
     stringr (>= 1.2.0),
     dplyr,
     tidyr,
@@ -19,3 +19,6 @@ Imports:
     MASS
 LazyData: true
 RoxygenNote: 6.0.1
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: rmarkdown
