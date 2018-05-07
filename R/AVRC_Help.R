@@ -7,14 +7,6 @@ Aeh70 = c("A-1.0",   "A-2.0",   "A-3.0",   "A-3.1" ,"E-1.0A") # <70 day EDI Clas
 Aeh133 = c(Aeh70, "E-1.0B")                                   # <133day EDI Classes
 
 # File Paths
-path_AVRC = paste0("C:/Users/",Sys.info()[8],
-                   "/OneDrive - UC San Diego/AVRC-Stats/")
-path_Dat  = paste0("C:/Users/",Sys.info()[8],
-                   "/OneDrive - UC San Diego/AVRC-Stats/Data/Datasets/")
-path_RDA  = paste0("C:/Users/",Sys.info()[8],
-                   "/OneDrive - UC San Diego/AVRC-Stats/Data/RDA/")
-path_WIP  = paste0("C:/Users/",Sys.info()[8],
-                   "/OneDrive - UC San Diego/AVRC-Stats/Data/WIP/")
 
 # Dates
 PIRC.PreSTI = as.Date("2010-01-01")

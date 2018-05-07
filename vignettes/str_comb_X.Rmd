@@ -20,6 +20,14 @@ knitr::opts_chunk$set(
 Welcome to my vignette for the `str_comb_X` functions. Currently there are 3, though I only really use 2 of them. First off, I recommend installing the following packages which I'll be using extensively in all my guides. And let's be honest, they're just pretty dang awesome.
 
 ```{r, include = T, echo = T}
+## Packages used for demonstration
+
+# install.packages("tidyverse")
+# install.packages("kableExtra")
+# install.packages("pander")
+# install.packages("stringr")
+# install.packages("knitr")
+
 library(tidyverse)
 library(kableExtra)
 library(pander)
