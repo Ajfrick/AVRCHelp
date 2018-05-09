@@ -4,7 +4,7 @@
 \alias{extract_Mo}
 \title{Create middle IQR string from numeric vector}
 \usage{
-extract_Mo(x, format = "\%Y-\%m-\%d")
+extract_Mo(x, format = "\%Y-\%m-\%d", numeric = F)
 }
 \arguments{
 \item{x}{character string}
@@ -20,6 +20,8 @@ Create middle IQR string from numeric vector
 \examples{
 extract_Mo(Sys.Date())
 extract_Mo("1989-03-12")
+extract_Mo("1989-03-12",numeric = T)
 extract_Mo("031289", format = "\%m\%d\%y")
+extract_Mo("031289", format = "\%m\%d\%y", numeric = T)
 extract_Mo("12_1989_03", format = "\%d_\%Y_\%m")
 }
