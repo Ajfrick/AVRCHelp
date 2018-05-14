@@ -13,8 +13,8 @@ freq_list(Tab)
 tibble formulated with all combos and freq
 }
 \description{
-Reformats table/3D Array into frequency list (currently 3 var max)
-Currently works best table generated with raw variable names after attach(<data>)
+Reformats table/3D Array into frequency list
+Currently usage requires table generated with raw variable names after attach(<data>)
 }
 \examples{
 attach(mtcars)

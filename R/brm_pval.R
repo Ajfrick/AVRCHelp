@@ -10,7 +10,7 @@
 #' g = rep(1:4,each = 25)
 #' df = tibble(x = x,y = y,g = g)
 #'
-#' brmfit = brm(y ~ x^2, data = df)
+#' brmfit = brm(y ~ x^2 + (1|g), data = df)
 #' brm_pval(brmfit)
 
 
