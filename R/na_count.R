@@ -1,22 +1,21 @@
-#' Count Missing and \% of Total
+#' Count Missing
 #'
 #' @param x Vector
-#' @return N (\%) of Number missing
+#' @return integer for number of missing
 #' @examples
 #' x = 1:100
 #' ind = sample(1:100, 10, replace = F)
 #' x[ind] = NA
-#' na_count(x)
+#' na_count(x, out = "percent")
+#' na_count(x, out = "percentage")
 #'
 #' x = 1:200
+#' na_count(x)
+#'
 #' x[ind] = NA
 #' na_count(x)
 #'
 
-
-
 na_count = function(x){
-  return(paste0(sum(is.na(x)), " (",
-               round(sum(is.na(x))/length(x)*100, digits = 1),
-               ")"))
+  return(sum(is.na(x)))
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/na_count.R
 \name{na_count}
 \alias{na_count}
-\title{Count Missing and \% of Total}
+\title{Count Missing}
 \usage{
 na_count(x)
 }
@@ -10,18 +10,21 @@ na_count(x)
 \item{x}{Vector}
 }
 \value{
-N (\%) of Number missing
+integer for number of missing
 }
 \description{
-Count Missing and \% of Total
+Count Missing
 }
 \examples{
 x = 1:100
 ind = sample(1:100, 10, replace = F)
 x[ind] = NA
-na_count(x)
+na_count(x, out = "percent")
+na_count(x, out = "percentage")
 
 x = 1:200
+na_count(x)
+
 x[ind] = NA
 na_count(x)
 
