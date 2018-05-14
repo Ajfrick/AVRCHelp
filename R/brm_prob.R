@@ -12,9 +12,9 @@
 #' g = rep(1:4,each = 25)
 #' df = tibble(x = x,y = y, z = z, g = g)
 #' brmfit = brm(y ~ x + z, data = df, family = bernoulli(link = "logit"))
-#' BRM.pval(brmfit)
+#' brm_pval(brmfit)
 
-BRM.probs = function(fit, digits = 2, predlabs,...){
+brm_probs = function(fit, digits = 2, predlabs,...){
   #require(brms);require(tidyverse);require(sjmisc)
 
   coefs = coef(fit)

@@ -11,10 +11,10 @@
 #' df = tibble(x = x,y = y,g = g)
 #'
 #' brmfit = brm(y ~ x^2, data = df)
-#' BRM.pval(brmfit)
+#' brm_pval(brmfit)
 
 
-BRM.pval = function(brmfit){require(tidyverse)
+brm_pval = function(brmfit){require(tidyverse)
 
   npars = length(grep("^b_", names(brmfit$fit@sim$samples[[1]])))-1
   samples =brmfit$fit@sim$samples

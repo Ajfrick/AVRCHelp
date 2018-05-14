@@ -13,9 +13,9 @@
 #' g = rep(1:4,each = 25)
 #' df = tibble(x = x,y = y,z = z, g = g)
 #' brmfit = brm(y ~ x^2 + z + (1|g), data = df)
-#' BRM.tab(brmfit)
+#' brm_tab(brmfit)
 
-BRM.tab = function(fit, digits = 2, predlabs,...){require(brms);require(tidyverse);require(sjmisc)
+brm_tab = function(fit, digits = 2, predlabs,...){require(brms);require(tidyverse);require(sjmisc)
 
   # form = fit$formula
   coefs = coef(fit)

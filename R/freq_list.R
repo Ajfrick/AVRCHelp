@@ -1,9 +1,8 @@
 #' freq_list
 #'
 #' @param tab table to format
-#' @description Reformats table/3D Array into frequency list (currently 3 var max)
-#' Currently works best table generated with raw variable names after attach(<data>)
-#'
+#' @description Reformats table/3D Array into frequency list
+#' Currently usage requires table generated with raw variable names after attach(<data>)
 #' @return tibble formulated with all combos and freq
 #' @examples
 #' attach(mtcars)

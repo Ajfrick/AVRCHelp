@@ -12,9 +12,9 @@
 #' z = runif(100,0,10)
 #' df = tibble(x = x,y = y)
 #' brmfit = brm(y ~ x + z, data = df, family = bernoulli(link = "logit"))
-#' BRM.pval(brmfit)
+#' brm_pval(brmfit)
 
-BRM.ors = function(fit, digits = 2, predlabs,...){require(brms);require(tidyverse);require(sjmisc)
+brm_ors = function(fit, digits = 2, predlabs,...){require(brms);require(tidyverse);require(sjmisc)
 
   # form = fit$formula
   coefs = coef(fit)
@@ -32,7 +32,7 @@ BRM.ors = function(fit, digits = 2, predlabs,...){require(brms);require(tidyvers
                  OR = round(exp(betacos[,1]),digits = digits),
                  Lower95 = round(exp(betacos[,2]),digits = digits),
                  Upper95 = round(exp(betacos[,3]),digits = digits),
-                 pValue  = round(BRM.pval(fit)$pvals,digits = max(3, digits)),
+                 pValue  = round(brm_pval(fit)$pvals,digits = max(3, digits)),
                  #  'p<0.05'   = ifelse((Lower95>=1 & Upper95>=1) | (Lower95 <= 1 & Upper95 <= 1),
                  #                 "*","")
                  CI = stringr::str_c("(",Lower95,",",Upper95,")"),
@@ -44,7 +44,7 @@ BRM.ors = function(fit, digits = 2, predlabs,...){require(brms);require(tidyvers
                  OR = round(exp(betacos[,1]),digits = digits),
                  Lower95 = round(exp(betacos[,2]),digits = digits),
                  Upper95 = round(exp(betacos[,3]),digits = digits),
-                 pValue  = round(BRM.pval(fit)$pvals,digits = max(3, digits)),
+                 pValue  = round(brm_pval(fit)$pvals,digits = max(3, digits)),
                  #  'p<0.05'   = ifelse((Lower95>=1 & Upper95>=1) | (Lower95 <= 1 & Upper95 <= 1),
                  #                 "*","")
                  CI = stringr::str_c("(",Lower95,",",Upper95,")"),

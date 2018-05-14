@@ -4,7 +4,7 @@
 
 
 
-BRM.pval = function(brmfit){require(tidyverse)
+brm_pval = function(brmfit){require(tidyverse)
 
   npars = length(grep("^b_", names(brmfit$fit@sim$samples[[1]])))-1
   samples =brmfit$fit@sim$samples
@@ -46,7 +46,7 @@ BRM.pval = function(brmfit){require(tidyverse)
 }
 
 ### Output regression coefs directly
-BRM.tab = function(fit, digits = 2, predlabs,...){require(brms);require(tidyverse);require(sjmisc)
+brm_tab = function(fit, digits = 2, predlabs,...){require(brms);require(tidyverse);require(sjmisc)
 
   # form = fit$formula
   coefs = coef(fit)
@@ -64,7 +64,7 @@ BRM.tab = function(fit, digits = 2, predlabs,...){require(brms);require(tidyvers
                  RegCoef = round(betacos[,1],digits = digits),
                  Lower95 = round(betacos[,2],digits = digits),
                  Upper95 = round(betacos[,3],digits = digits),
-                 pValue  = round(BRM.pval(fit)$pvals,digits = max(3, digits)),
+                 pValue  = round(brm_pval(fit)$pvals,digits = max(3, digits)),
                  #  'p<0.05'   = ifelse((Lower95>=1 & Upper95>=1) | (Lower95 <= 1 & Upper95 <= 1),
                  #                 "*","")
                  CI = str_c("(",Lower95,",",Upper95,")"),
@@ -76,7 +76,7 @@ BRM.tab = function(fit, digits = 2, predlabs,...){require(brms);require(tidyvers
                   RegCoef = round(betacos[,1],digits = digits),
                   Lower95 = round(betacos[,2],digits = digits),
                   Upper95 = round(betacos[,3],digits = digits),
-                  pValue  = round(BRM.pval(fit)$pvals,digits = max(3, digits)),
+                  pValue  = round(brm_pval(fit)$pvals,digits = max(3, digits)),
                   #  'p<0.05'   = ifelse((Lower95>=1 & Upper95>=1) | (Lower95 <= 1 & Upper95 <= 1),
                   #                 "*","")
                   CI = str_c("(",Lower95,",",Upper95,")"),
@@ -90,7 +90,7 @@ BRM.tab = function(fit, digits = 2, predlabs,...){require(brms);require(tidyvers
 ### Output ORs from logit linkmodel fit
 
 
-BRM.ors = function(fit, digits = 2, predlabs,...){require(brms);require(tidyverse);require(sjmisc)
+brm_ors = function(fit, digits = 2, predlabs,...){require(brms);require(tidyverse);require(sjmisc)
 
   # form = fit$formula
   coefs = coef(fit)
@@ -108,7 +108,7 @@ BRM.ors = function(fit, digits = 2, predlabs,...){require(brms);require(tidyvers
                  OR = round(exp(betacos[,1]),digits = digits),
                  Lower95 = round(exp(betacos[,2]),digits = digits),
                  Upper95 = round(exp(betacos[,3]),digits = digits),
-                 pValue  = round(BRM.pval(fit)$pvals,digits = max(3, digits)),
+                 pValue  = round(brm_pval(fit)$pvals,digits = max(3, digits)),
                  #  'p<0.05'   = ifelse((Lower95>=1 & Upper95>=1) | (Lower95 <= 1 & Upper95 <= 1),
                  #                 "*","")
                  CI = str_c("(",Lower95,",",Upper95,")"),
@@ -120,7 +120,7 @@ BRM.ors = function(fit, digits = 2, predlabs,...){require(brms);require(tidyvers
                  OR = round(exp(betacos[,1]),digits = digits),
                  Lower95 = round(exp(betacos[,2]),digits = digits),
                  Upper95 = round(exp(betacos[,3]),digits = digits),
-                 pValue  = round(BRM.pval(fit)$pvals,digits = max(3, digits)),
+                 pValue  = round(brm_pval(fit)$pvals,digits = max(3, digits)),
                  #  'p<0.05'   = ifelse((Lower95>=1 & Upper95>=1) | (Lower95 <= 1 & Upper95 <= 1),
                  #                 "*","")
                  CI = str_c("(",Lower95,",",Upper95,")"),
@@ -133,7 +133,7 @@ BRM.ors = function(fit, digits = 2, predlabs,...){require(brms);require(tidyvers
 ##### Output probabilities from OR/Logit link Model fit
 
 
-BRM.probs = function(fit, digits = 2, predlabs,...){require(brms);require(tidyverse);require(sjmisc)
+brm_probs = function(fit, digits = 2, predlabs,...){require(brms);require(tidyverse);require(sjmisc)
 
   coefs = coef(fit)
   pars = dim(coefs[[1]])[3]
@@ -177,7 +177,7 @@ Mega.Tab.act = function(funlist){require(brms);require(tidyverse);require(sjmisc
   Time = character(mods)
   CMVxTime = character(mods)
 
-  minitabs = lapply(funlist, FUN = BRM.tab)
+  minitabs = lapply(funlist, FUN = brm_tab)
   for(i  in 1:mods){
     Val[[i]] = Extract.CMV.Time(minitabs[[i]],snames[i])
     Subtype[i]=Val[[i]][1]
@@ -213,7 +213,7 @@ Mega.Tab.pd1 = function(funlist){require(brms);require(tidyverse);require(sjmisc
   Time = character(mods)
   CMVxTime = character(mods)
 
-  minitabs = lapply(funlist, FUN = BRM.tab)
+  minitabs = lapply(funlist, FUN = brm_tab)
   for(i  in 1:mods){
     Val[[i]] = Extract.CMV.Time(minitabs[[i]],snames[i])
     Subtype[i]=Val[[i]][1]
