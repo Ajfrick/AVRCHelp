@@ -59,13 +59,5 @@
   results
 }
 
-`%x||%` = function(left,right){
-  if(is.na(left) & is.na(right)){return (NA)}
-  if(left == T & right == T){return (F)}
-  left | right
-}
 
-`%!in%` = function(left,right){
-  ! left %in% right
-}
 
