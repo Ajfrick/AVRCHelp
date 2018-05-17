@@ -18,9 +18,9 @@
 
 str_file = function(dir,file,ext, date = T){
   ifelse(date==T,
-    str_c(dir,file,"_",
-          str_replace_all(Sys.Date(),"-",""),
+    stringr::str_c(dir,file,"_",
+          stringr::str_replace_all(Sys.Date(),"-",""),
           ".",ext),
-    str_c(dir,file,
+    stringr::str_c(dir,file,
           ".",ext))
 }
