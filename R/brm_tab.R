@@ -33,7 +33,7 @@ brm_tab = function(fit, digits = 2, predlabs,...){require(brms);require(tidyvers
                   RegCoef = round(betacos[,1],digits = digits),
                   Lower95 = round(betacos[,2],digits = digits),
                   Upper95 = round(betacos[,3],digits = digits),
-                  pValue  = round(BRM.pval(fit)$pvals,digits = max(3, digits)),
+                  pValue  = round(brm_pval(fit)$pvals,digits = max(3, digits)),
                   #  'p<0.05'   = ifelse((Lower95>=1 & Upper95>=1) | (Lower95 <= 1 & Upper95 <= 1),
                   #                 "*","")
                   CI = stringr::str_c("(",Lower95,",",Upper95,")"),
@@ -45,7 +45,7 @@ brm_tab = function(fit, digits = 2, predlabs,...){require(brms);require(tidyvers
                   RegCoef = round(betacos[,1],digits = digits),
                   Lower95 = round(betacos[,2],digits = digits),
                   Upper95 = round(betacos[,3],digits = digits),
-                  pValue  = round(BRM.pval(fit)$pvals,digits = max(3, digits)),
+                  pValue  = round(brm_pval(fit)$pvals,digits = max(3, digits)),
                   #  'p<0.05'   = ifelse((Lower95>=1 & Upper95>=1) | (Lower95 <= 1 & Upper95 <= 1),
                   #                 "*","")
                   CI = stringr::str_c("(",Lower95,",",Upper95,")"),

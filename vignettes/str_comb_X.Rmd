@@ -101,7 +101,7 @@ mtcars %>% dplyr::group_by(cyl) %>%
   dplyr::summarise(mpg = str_comb_Intv(mpg),
                    am  = str_comb_Prop(am == 1),
                    hp  = str_comb_Intv(log2(hp+1), digits = 1,
-                                      lower = 0, upper = 1)) %>% 
+                                      limits = 0:1)) %>% 
   t %>% knitr::kable(format = 'html')  %>% 
   kableExtra::kable_styling(bootstrap_options = "hover")
   
