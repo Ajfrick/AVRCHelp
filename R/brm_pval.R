@@ -14,10 +14,10 @@
 #' brm_pval(brmfit)
 
 
-brm_pval = function(brmfit){require(tidyverse)
+brm_pval = function(fit){require(tidyverse)
 
-  npars = length(grep("^b_", names(brmfit$fit@sim$samples[[1]])))-1
-  samples =brmfit$fit@sim$samples
+  npars = length(grep("^b_", names(fit$fit@sim$samples[[1]])))-1
+  samples =fit$fit@sim$samples
 
   if(npars>1){
     draws = rbind(as.data.frame(samples[[1]])[,2:(1+npars)],
@@ -27,7 +27,7 @@ brm_pval = function(brmfit){require(tidyverse)
 
     names = colnames(draws)
     out = tibble::tibble(names = names)
-    chains = length(brmfit$fit@sim$samples)
+    chains = length(fit$fit@sim$samples)
 
     pvals = numeric(npars)
 
@@ -53,6 +53,7 @@ brm_pval = function(brmfit){require(tidyverse)
     coef = names(samples[[1]][2])
     test = sum(draws < 0)/length(draws)
     pvals = ifelse(mean(draws)>0,test,1-test)*2
-    c(coef,as.numeric(pvals))
+    tibble(names = coef,
+           pvals = pvals)
   }
 }

@@ -15,7 +15,7 @@
 #' brmfit = brm(y ~ x^2 + z + (1|g), data = df)
 #' brm_tab(brmfit)
 
-brm_tab = function(fit, digits = 2, predlabs,...){require(brms);require(tidyverse);require(sjmisc)
+brm_tab = function(fit, digits = 2, predlabs,...){
 
   # form = fit$formula
   coefs = coef(fit)
