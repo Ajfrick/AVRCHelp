@@ -28,6 +28,19 @@ brm_tab = function(fit, digits = 2, predlabs,...){
     }
   }
 
+  if(pars == 2){
+    Tabs = tibble::tibble(Predictor = rownames(fixef(fit))[-1],
+                          RegCoef = round(betacos[,1],digits = digits),
+                          Lower95 = round(betacos[,2],digits = digits),
+                          Upper95 = round(betacos[,3],digits = digits),
+                          pValue  = round(brm_pval(fit)$pvals,digits = max(3, digits)),
+                          #  'p<0.05'   = ifelse((Lower95>=1 & Upper95>=1) | (Lower95 <= 1 & Upper95 <= 1),
+                          #                 "*","")
+                          CI = stringr::str_c("(",Lower95,",",Upper95,")"),
+                          sig = ifelse(pValue<=0.05,"*",""))%>%
+      dplyr::select(Predictor, RegCoef, CI, pValue, sig)
+    return(Tabs)
+  }
   if(missing(predlabs)){
     Tabs = tibble::tibble(Predictor = rownames(betacos),
                   RegCoef = round(betacos[,1],digits = digits),
