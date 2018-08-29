@@ -14,7 +14,7 @@
 #' brm_pval(brmfit)
 
 
-brm_pval = function(fit){require(tidyverse)
+brm_pval = function(fit){
 
   npars = length(grep("^b_", names(fit$fit@sim$samples[[1]])))-1
   samples =fit$fit@sim$samples

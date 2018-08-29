@@ -2,7 +2,7 @@
 % Please edit documentation in R/Better_or.R
 \name{\%|\%}
 \alias{\%|\%}
-\title{F | NA -> F Operator}
+\title{F or NA -> F Operator}
 \usage{
 left \%|\% right
 }
@@ -16,7 +16,7 @@ vector of logicals
 }
 \description{
 Replicates `|` behavior, but returns F instead of NA when making comparisons
-of F | NA. NA & NA still returns missing when comparing equal length
+of F or NA. NA & NA still returns missing when comparing equal length
 vectors.
 
 Left and Right sides must be same length, or one of them length 1.

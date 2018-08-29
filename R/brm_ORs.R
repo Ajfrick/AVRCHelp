@@ -14,7 +14,7 @@
 #' brmfit = brm(y ~ x + z, data = df, family = bernoulli(link = "logit"))
 #' brm_pval(brmfit)
 
-brm_ors = function(fit, digits = 2, predlabs,...){require(brms);require(tidyverse);require(sjmisc)
+brm_ors = function(fit, digits = 2, predlabs,...){
 
   # form = fit$formula
   coefs = coef(fit)

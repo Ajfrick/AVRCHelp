@@ -16,7 +16,7 @@
 #' parfm_HRs(fit)
 
 parfm_HRs = function(fit, pred = NA){
-  CI  = ci.parfm(fit)
+  CI  = parfm::ci.parfm(fit)
   tab = dplyr::tibble(
     Name= ifelse(is.null(names(coef(fit))),pred,names(coef(fit))),
     HR = exp(coef(fit)),

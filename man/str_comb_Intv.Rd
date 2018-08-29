@@ -4,8 +4,8 @@
 \alias{str_comb_Intv}
 \title{Create center with spread data summary for table}
 \usage{
-str_comb_Intv(x, fun = median, digits = 2, delim = ",", limits = c(0.25,
-  0.75))
+str_comb_Intv(x, fun = median, digits = 2, delim = ",",
+  limits = c(0.25, 0.75))
 }
 \arguments{
 \item{x}{Numeric Vector}
