@@ -30,7 +30,7 @@ date_near = function(dates, target, thresh = Inf, onlypre = F,
   if(onlypre == T){
     dates = dates[dates < target]
   }
-  dates = sort(dates)
+  dates = unique(sort(dates))
   dates = dates[abs(dates-target)<thresh]
   delts = as.numeric(abs(dates-target))
   if(length(delts) == 0){
