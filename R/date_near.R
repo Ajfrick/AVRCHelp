@@ -23,18 +23,22 @@
 date_near = function(dates, target, thresh = Inf, onlypre = F,
                      sidepref){
   ##Basic options
-
+  target = unique(target)
   if(is.character(target)){target = as.Date(target)}
+  if(length(target) != 1){
+    warning("Target argument should only contain one Date")
+    return(NA)
+  }
 
   ## Remove points after if only before points desired
   if(onlypre == T){
     dates = dates[dates < target]
   }
-  dates = sort(dates)
+  dates = unique(sort(dates))
   dates = dates[abs(dates-target)<thresh]
   delts = as.numeric(abs(dates-target))
   if(length(delts) == 0){
-    # warning("No Match found within threshold")
+    warning("No Match found within threshold")
     return(NA)
     }
   ind = delts == min(delts)
