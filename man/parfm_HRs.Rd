@@ -12,7 +12,7 @@ parfm_HRs(fit, pred = NA)
 \item{pred}{Optional Argument for models with single predictor}
 }
 \value{
-Tibble with 5 columns: Name (char), HR, lower CI, Upper CI, p-val (doubles)
+Tibble with 5 columns: Name (char), HR, 95 CI, p-val (doubles)
 }
 \description{
 Generates table with Hazard rate, 95 CI and pval for parfm models fixed effects
