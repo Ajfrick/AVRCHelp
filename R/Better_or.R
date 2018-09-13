@@ -15,7 +15,7 @@
 #' @examples
 #' coming soon
 
-`%|%` = function(left,right){
+`%or%` = function(left,right){
 
   if(xor(length(left) == 1,length(right) == 1)){
     inputs = list(left,right)
