@@ -1,0 +1,81 @@
+---
+title: "avrc_bools WIP v1"
+author: "Andrew Frick"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{str_comb_X Functions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(AVRCHelp)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+One of the first "oops" mistakes I had in R had to do with T | NA == NA instead
+of false. While there are times when you don't want to coerce that to false, I
+decided to create a new set of boolean operators for this case.
+
+First we'll look at the new `equal to` operator `%==%` by creating a data frame of 
+boolean combinations
+
+```{r}
+#Create data frame/tibble with combination of all bools
+
+x = c(T,F,NA)
+
+bools = as.tibble(expand.grid(x,x))
+
+equals = bools %>% 
+  mutate(`==` = (Var1 == Var2),
+         `%==%` = (Var1 %==% Var2))
+```
+
+Below you can see the difference in the output for the original `==` and the 
+`%==%` extension.
+
+```{r}
+equals
+```
+
+Here we'll create another tibble containing the 'venn diagram' boolean operators
+
+1. `|` vs `%or%`
+2. `&` vs `%&%`
+
+```{r}
+
+Venns = bools %>% 
+  mutate(`|` = (Var1 | Var2),
+         `%or%` = (Var1 %or% Var2),
+         `&` = (Var1 & Var2),
+         `%&%` = (Var1 %&% Var2))
+
+```
+
+
+```{r}
+Venns
+```
+
+The equality operator also allows comparison of a single value vs a vector, it
+can be used for subsetting operations. 
+
+```{r}
+
+y = 'blue'
+
+colors = c('blue', 'red', 'yellow', NA)
+
+colorsamp = sample(colors, size = 10, prob = c(0.2,0.2,0.3,0.3),
+                   replace = T)
+
+
+y  ==  colorsamp
+y %==% colorsamp
+
+```
+
