@@ -4,7 +4,8 @@
 \alias{date_near}
 \title{Find Nearest Date within Threshold}
 \usage{
-date_near(dates, target, thresh = Inf, onlypre = F, sidepref)
+date_near(dates, target, thresh = Inf, onlypre = F, sidepref,
+  quiet = T)
 }
 \arguments{
 \item{dates}{vector of Date objects to search through}

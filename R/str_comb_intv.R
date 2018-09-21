@@ -27,5 +27,7 @@ str_comb_Intv = function(x, fun = median, digits = 2, delim = ",",
 
   Intv = round(quantile(as.numeric(x), probs = c(limits[1],limits[2]), na.rm = T), digits = digits)
 
-  return(stringr::str_c(Cent," (", Intv[1], delim, Intv[2], ")"))
+  return(stringr::str_c(print_dec(Cent,digits)," (",
+                        print_dec(Intv[1],digits), delim,
+                        print_dec(Intv[2],digits), ")"))
 }

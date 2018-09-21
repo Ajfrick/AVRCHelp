@@ -30,9 +30,9 @@ str_comb_Prop = function(x, category = NULL, na.rm = T, digits = 1,
 
   Tot = length(na.omit(x))
 
-  p = ifelse(tolower(out) == "percentage",round(N/Tot, digits = digits+2),
+  p = print_dec(ifelse(tolower(out) == "percentage",round(N/Tot, digits = digits+2),
              ifelse(tolower(out) == "percent",round(100*N/Tot, digits = digits),
-                    "err"))
+                    "err")), digits = digits)
 
   if(zero2dash == T & N == "0"){ #coerce 0 (0) -> '-'
     return("-")

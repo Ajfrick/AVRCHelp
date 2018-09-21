@@ -21,7 +21,7 @@
 #'
 
 date_near = function(dates, target, thresh = Inf, onlypre = F,
-                     sidepref){
+                     sidepref, quiet = T){
   ##Basic options
   target = unique(target)
   if(is.character(target)){target = as.Date(target)}
@@ -38,7 +38,9 @@ date_near = function(dates, target, thresh = Inf, onlypre = F,
   dates = dates[abs(dates-target)<thresh]
   delts = as.numeric(abs(dates-target))
   if(length(delts) == 0){
-    warning("No Match found within threshold")
+    if(!quiet){
+      warning("No Match found within threshold")
+    }
     return(NA)
     }
   ind = delts == min(delts)
