@@ -16,7 +16,7 @@
 
 glm_ORs = function(fit){
 
-  CI = suppressMessages(confint(fit))[-c(1:2),]
+  CI = suppressMessages(confint(fit))[-1,]
   summ = coef(summary(fit))[-1,c(1,4)]
 
   if(nrow(coef(summary(fit)))==2){
@@ -28,8 +28,7 @@ glm_ORs = function(fit){
       p   = summ[2]
     )
     Tib
-  }
-  else{
+  }else{
     Tib = tibble(
       Name = rownames(summ),
       OR =  exp(summ[,1]),
