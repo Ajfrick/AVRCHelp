@@ -9,8 +9,9 @@
 #' @examples
 #' data(mtcars)
 #'
+#' Remove Toyota corona (row 21) to get larger smaller pvalue for illustration
 #' mod = glm(am ~  hp + wt ,
-#'           data = mtcars, family = binomial())
+#'           data = mtcars[-21,], family = binomial())
 #'
 #' tab = glm_ORs(mod)
 #'
