@@ -5,7 +5,8 @@
 \title{Create count with proportion as string}
 \usage{
 str_comb_Prop(x, category = NULL, na.rm = T, digits = 1,
-  out = c("percentage", "percent"), perc.disp = F, zero2dash = T)
+  out = c("percentage", "percent"), perc.disp = F, escape = F,
+  zero2dash = T)
 }
 \arguments{
 \item{x}{vector}
@@ -16,7 +17,9 @@ str_comb_Prop(x, category = NULL, na.rm = T, digits = 1,
 
 \item{out}{single character representing output for proportion}
 
-\item{perc.disp}{logical for inclustion of \% sign}
+\item{perc.disp}{logical for inclusion of \% sign}
+
+\item{escape}{logical for inclusion of escape character for LaTeX tables}
 
 \item{zero2dash}{logical for returning "-" instead of "0 (0)" for tables}
 }

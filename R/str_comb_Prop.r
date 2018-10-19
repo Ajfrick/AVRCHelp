@@ -3,7 +3,8 @@
 #' @param category Category to count x matches (not required if x logical)
 #' @param digits number of digits to round
 #' @param out single character representing output for proportion
-#' @param perc.disp logical for inclustion of \% sign
+#' @param perc.disp logical for inclusion of \% sign
+#' @param escape logical for inclusion of escape character for LaTeX tables
 #' @param zero2dash logical for returning "-" instead of "0 (0)" for tables
 #' @return Character String of the form "N ( \% )"
 #' @examples
@@ -15,7 +16,7 @@
 
 str_comb_Prop = function(x, category = NULL, na.rm = T, digits = 1,
                          out = c("percentage","percent"),
-                         perc.disp = F,
+                         perc.disp = F, escape = F,
                          zero2dash = T){
   if(missing(out)) out = "percent"
   if(typeof(category) == "double") category = as.integer(category)
@@ -38,7 +39,7 @@ str_comb_Prop = function(x, category = NULL, na.rm = T, digits = 1,
     return("-")
   }
   if(perc.disp == T & tolower(out) == "percent"){ #add \% if requested
-    p = stringr::str_c(p,"%")
+    p = stringr::str_c(p,ifelse(escape,"\\",""),"%")
   }
   return(stringr::str_c(N, " (",p,")"))
 }
