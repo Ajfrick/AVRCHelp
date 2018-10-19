@@ -39,7 +39,7 @@ str_comb_prop = function(x, category = NULL, na.rm = T, digits = 1,
     return("-")
   }
   if(perc.disp == T & tolower(out) == "percent"){ #add \% if requested
-    p = stringr::str_c(p,ifelse(escape,"\\",""),"%")
+    p = stringr::str_c(p,ifelse(escape,"\\\\%","%"))
   }
   return(stringr::str_c(N, " (",p,")"))
 }
