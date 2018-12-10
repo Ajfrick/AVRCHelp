@@ -33,7 +33,7 @@ freq_list = function(Tab){
     arrange(get(vars[1]),get(vars[2])) %>%
     dplyr::filter(N != 0) %>%
     dplyr::mutate(Pct = round(N / Tot, digits = 4)) %>%
-    dplyr::arrange(-Pct) %>%
+    dplyr::arrange(-N) %>%
     dplyr::mutate(Cpct = cumsum(Pct))
 
   return(Tib)
