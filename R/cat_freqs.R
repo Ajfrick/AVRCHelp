@@ -25,7 +25,7 @@
 #' cat_freqs(dat$Species) #omit.na = F default
 #' cat_freqs(dat$Species, omit.na = T)
 
-cat_freqs = function(x, omit.na = F, digits = 1,
+cat_freqs = function(x, omit.na = F, NAname = NA, digits = 1,
                      out = c("percentage","percent"),
                      perc.disp = F, escape = F,
                      zero2dash = T){
@@ -38,10 +38,10 @@ cat_freqs = function(x, omit.na = F, digits = 1,
   n = length(x)
   M = length(table(x))
 
-  if(M < 2){
-    warning("Less than 2 categories, function has no purpose")
-    return()
-  }
+  # if(M < 2){
+  #   warning("Less than 2 categories, function has no purpose")
+  #   return()
+  # }
 
   cats = as.character(names(table(x, useNA = 'ifany')))
 
@@ -68,6 +68,8 @@ cat_freqs = function(x, omit.na = F, digits = 1,
    tib = tib %>%
       dplyr::mutate(Cat = cats) %>%
       dplyr::select(Cat,N)
+
+   tib[is.na(tib$Cat),1] = NAname
 
     return(tib)
   }

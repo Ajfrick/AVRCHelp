@@ -4,16 +4,23 @@
 \alias{date_count}
 \title{Count up Frequency between two dates}
 \usage{
+<<<<<<< HEAD
 date_count(x, lower = "0001-01-01", upper = "4000-01-01", rel = F,
   incl = F)
+=======
+date_count(x, lower = "0001-01-01", upper = "4000-01-01", rel = F)
+>>>>>>> a40ee778dd522add39e8253e97545a12f71fb98e
 }
 \arguments{
 \item{x}{vector of Date objects}
 
 \item{rel}{logical for output as relative frequency}
 
+<<<<<<< HEAD
 \item{incl}{logical for inclusion of endpoints}
 
+=======
+>>>>>>> a40ee778dd522add39e8253e97545a12f71fb98e
 \item{start}{Start of time interval in YYYY-MM-DD format}
 
 \item{end}{End of time interval in YYYY-MM-DD format}
@@ -26,7 +33,11 @@ double for relative frequency
 Counts up number of elements in x between the start and end
 point
 
+<<<<<<< HEAD
 lower and upper default to Jan 1AD and Jan 4000AD, so one sided intervals only need one
+=======
+lower and upper default to +/-Inf, so one sided intervals only need one
+>>>>>>> a40ee778dd522add39e8253e97545a12f71fb98e
 argument specified
 }
 \examples{

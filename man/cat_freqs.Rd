@@ -4,8 +4,9 @@
 \alias{cat_freqs}
 \title{Create column for frequency distribution of data}
 \usage{
-cat_freqs(x, omit.na = F, digits = 1, out = c("percentage",
-  "percent"), perc.disp = F, escape = F, zero2dash = T)
+cat_freqs(x, omit.na = F, NAname = NA, digits = 1,
+  out = c("percentage", "percent"), perc.disp = F, escape = F,
+  zero2dash = T)
 }
 \arguments{
 \item{x}{vector of characters or factors}
